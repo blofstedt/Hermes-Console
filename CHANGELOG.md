@@ -3,6 +3,10 @@
 All notable public changes are documented here. Internal QA/profile artifacts
 are not releases.
 
+## 1.2.25 (4980)
+
+- fix(active-chat): don't await foreground service lease on send path
+
 ## 1.2.24 (4979)
 
 - fix(browser-live-view): poll a fresh screen still over the dashboard media route
