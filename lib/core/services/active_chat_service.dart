@@ -6030,7 +6030,7 @@ class ActiveChat {
       _usingDesktopGateway = true;
       currentRunId = null;
       state = ChatPipelineState.waiting;
-      await _onForegroundKeepAlive?.call();
+      unawaited(_onForegroundKeepAlive?.call());
       _emit(ActiveChatEvent.connected);
       _armFirstTokenTimer();
       var promptText = desktopText ?? fullText;
@@ -8432,7 +8432,7 @@ class ActiveChat {
       _emit(ActiveChatEvent.waiting);
       // Mantén vivo el proceso durante la llamada larga a `hermes -z` aunque la
       // app pase a 2º plano (isStreaming=true evita que se baje hasta terminar).
-      await _onForegroundKeepAlive?.call();
+      unawaited(_onForegroundKeepAlive?.call());
       // El isolate del servicio sondea /v1/runs, que el bridge no expone, así
       // que no reflejaría este turno. Actualizamos la notificación persistente
       // a mano para que en 2º plano se vea que el agente local está procesando.
